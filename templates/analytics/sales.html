@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-12">
+        <h1>Ventas</h1>
+        <p>Bienvenido</p>
+
+        {% if ventas %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Total</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for venta in ventas %}
+                        <tr>
+                            <td>{{ venta.producto.nombre }}</td>
+                            <td>{{ venta.cantidad }}</td>
+                            <td>{{ venta.total }}</td>
+                            <td>{{ venta.fecha }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No hay ventas registradas</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
